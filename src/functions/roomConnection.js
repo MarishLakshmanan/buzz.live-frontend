@@ -32,8 +32,8 @@ function initSocketConnection(roomID,playVideoClient,setClinetState,clientRef,cr
     })
 
     navigator.mediaDevices.getUserMedia({
-        video:true,
-        audio:false,
+        video:{ facingMode: "user" },
+        audio:true,
     }).then((yourStream)=>{
         myStream = yourStream;
 
@@ -50,6 +50,7 @@ function initSocketConnection(roomID,playVideoClient,setClinetState,clientRef,cr
         })
 
         const myVideo = document.createElement("video")
+        myVideo.muted=true;
         myVideo.classList.add("user-video")
         addVideoStream(myVideo,yourStream,uid);
 
