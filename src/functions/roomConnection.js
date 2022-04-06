@@ -8,7 +8,7 @@ const uid = localStorage.getItem("id")
 
 function initSocketConnection(roomID,playVideoClient,setClinetState,clientRef,createMessage,setView,getRoomUsers){
     
-    socket = io(process.env.REACT_APP_BACKEND_API)
+    socket = io(process.env.REACT_APP_BACKEND_API,{transports: ['websocket']})
 
     const peer = new Peer(uid, {
         host: 'peerjs-server.herokuapp.com',
