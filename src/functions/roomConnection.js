@@ -58,6 +58,8 @@ function initSocketConnection(roomID,playVideoClient,setClinetState,clientRef,cr
             getRoomUsers();
             setTimeout(connectToNewUser,10000,userID,yourStream,peer);
         })
+    }).catch((err)=>{
+        console.log(err);
     })
 
     socket.on("play-video",(url)=>{
