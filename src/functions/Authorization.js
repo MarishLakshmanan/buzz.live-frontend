@@ -1,5 +1,8 @@
 import axios from "axios"
 
+
+
+
 function checkAuth(nav,setAuthenticated){
     const atoken =  localStorage.getItem("atoken");
         const rtoken = localStorage.getItem("rtoken")
@@ -10,22 +13,36 @@ function checkAuth(nav,setAuthenticated){
                         axios.get(process.env.REACT_APP_BACKEND_API+"/checkToken",{headers:{"authorization":`Bearer ${rtoken}`,crossdomain:true}}).then((res)=>{
                             localStorage.setItem("atoken",res.data.atoken);
                             console.log("Stored again");
-                            setAuthenticated(true);
+                            if(setAuthenticated){
+                                setAuthenticated(true);
+                            }
+                            
                         });
                     }else{
                        //nav("/login");
                        console.log("Go to login");
-                       setAuthenticated(false)
+                       if(setAuthenticated){
+                            setAuthenticated(false)
+                       }else{
+                           nav("/")
+                       }
+                       
                     }
                 }else{
                     console.log(res.data.user);
-                    setAuthenticated(true)
+                    if(setAuthenticated){
+                        setAuthenticated(true)
+                    }
                 }
             })
         }else{
            //nav("/login");
            console.log("Go to login");
+           if(setAuthenticated){
            setAuthenticated(false)
+           }else{
+               nav("/");
+           }
         }
 }
 

@@ -11,9 +11,9 @@ function initSocketConnection(roomID,playVideoClient,setClinetState,clientRef,cr
     socket = io(process.env.REACT_APP_BACKEND_API)
 
     const peer = new Peer(uid, {
-        host: 'localhost',
-        port: '3001',
-        path: '/'
+        host: 'peerjs-server.herokuapp.com',
+        port: '443',
+        secure:true
     })
 
     peer.on("open",(id)=>{
