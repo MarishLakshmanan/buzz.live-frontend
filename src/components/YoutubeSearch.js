@@ -16,7 +16,7 @@ function YoutubeSearch(props){
             props.toast({state:true,msg:"Please enter somthing"})
         }
         else{
-            const url  = `https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_YOUTUBE}&part=snippet&q=${query}&maxResults=${10}&type=video`
+            const url  = `https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_YOUTUBE_KEY}&part=snippet&q=${query}&maxResults=${10}&type=video`
             axios.get(url).then((res)=>{
             setVideos(res.data.items);
         })
