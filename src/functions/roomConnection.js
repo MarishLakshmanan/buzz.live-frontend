@@ -8,12 +8,16 @@ const uid = localStorage.getItem("id")
 
 function initSocketConnection(roomID,playVideoClient,setClinetState,clientRef,createMessage,setView,getRoomUsers){
     
-    socket = io(process.env.REACT_APP_BACKEND_API,{transports: ['websocket']})
+    socket = io(process.env.REACT_APP_BACKEND_API)
 
     const peer = new Peer(uid, {
         host: 'peerjs-server.herokuapp.com',
         port: '443',
-        secure:true
+        secure:true,
+        config: {'iceServers': [
+            { url: 'stun:stun.l.google.com:19302' },
+            { url: 'stun:stun1.l.google.com:19302' },
+            ]}
     })
 
     peer.on("open",(id)=>{
