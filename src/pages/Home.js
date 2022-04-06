@@ -14,6 +14,8 @@ import Toast from "../components/Toast"
 import emptyVideo from "../resources/empty.mp4"
 import Login from "./Login"
 
+axios.defaults.baseURL = process.env.REACT_APP_BACKEND_API;
+
 function Home(){
 
     const [nav,setNav] = useState(true);
@@ -27,6 +29,7 @@ function Home(){
     useEffect(()=>{
         checkAuth(navigate,setAuthenticated)
         getRooms(setRooms);  
+        console.log(process.env.REACT_APP_BACKEND_API);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
