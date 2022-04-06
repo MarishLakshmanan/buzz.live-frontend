@@ -10,7 +10,7 @@ function Room(props){
             if(res.data.msg==="202"){
                 props.toast({state:true,msg:"Sorry that room is full but don't worry there are plenty of other rooms for you 😊"})
             }else{
-                window.open(`http://localhost:3000/room/${props.roomID}`);
+                window.open(`https://incredible-cendol-e97fea.netlify.app/room/${props.roomID}`);
             }
             
         })
