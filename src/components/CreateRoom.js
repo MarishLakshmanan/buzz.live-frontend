@@ -48,7 +48,7 @@ function CreateRoom(props){
         }
 
         axios.post(process.env.REACT_APP_BACKEND_API+"/createRoom",room).then((res)=>{
-            if(res.data.msg==="Created"){
+            if(res.data.msg==="Success"){
                 console.log("Sucess");
                 props.getRooms(props.setRooms)
                 props.onClose();
