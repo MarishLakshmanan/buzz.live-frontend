@@ -54,9 +54,8 @@ function initSocketConnection(roomID,playVideoClient,setClinetState,clientRef,cr
         addVideoStream(myVideo,yourStream,uid);
 
         socket.on("user-joined",(userID)=>{
-            console.log(userID);
             getRoomUsers();
-            setTimeout(connectToNewUser,3000,userID,yourStream,peer);
+            setTimeout(connectToNewUser,6000,userID,yourStream,peer);
         })
     })
 

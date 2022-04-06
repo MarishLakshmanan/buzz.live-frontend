@@ -29,7 +29,6 @@ function Home(){
     useEffect(()=>{
         checkAuth(navigate,setAuthenticated)
         getRooms(setRooms);  
-        console.log(process.env.REACT_APP_BACKEND_API);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
